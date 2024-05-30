@@ -1,0 +1,116 @@
+.container-register {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+}
+
+#img-register {
+  width: 400px;
+  filter: drop-shadow(0 0 7px #0000004d);
+}
+
+@media screen and (max-width: 1130px) {
+  #img-register {
+    display: none;
+  }
+}
+
+.container-register > form {
+  width: 500px;
+  min-height: 40px;
+  background-color: #f2f2f2;
+  padding: 50px 30px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: 0 0 7px 0 #424242;
+  border: 3px solid #424242;
+  margin-bottom: 30px;
+}
+
+.container-register > form > h1 {
+  font-family: var(--font-poppins-paragraph);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.container-register > form > div {
+  margin: 5px 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#labelGender {
+  font-family: var(--font-poppins-paragraph);
+  font-size: 1.1rem;
+  margin: 0 5px;
+}
+
+#selectGender {
+  width: 100%;
+  padding: 5px;
+  font-size: 1.2rem;
+  border: 1px solid #000;
+  border-radius: 7px;
+}
+
+.btnShowPassord {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.btnShowPassord:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  background-color: #020202;
+  color: #fff;
+  width: 300px;
+  padding: 10px;
+  font-size: 1.1rem;
+  font-family: var(--font-poppins-paragraph);
+  border-radius: 7px;
+  border: 1px solid #000;
+  cursor: pointer;
+  box-shadow: 0 0 8px 0 #00000098;
+  margin: 7px 0;
+  transition: 300ms;
+}
+
+.btn:hover {
+  background-color: #121212;
+  border: 1px solid #121212;
+}
+
+.btn:active {
+  background-color: #1d1d1d;
+  border: 1px solid #1d1d1d;
+}
+
+.container-register > form > span {
+  margin-top: 15px;
+  font-family: var(--font-poppins-paragraph);
+}
+
+.container-register > form > span > a {
+  color: #000;
+  text-decoration: none;
+  margin-left: 5px;
+  font-weight: 500;
+  transition: 300ms;
+}
+
+.container-register > form > span > a:hover {
+  color: #373737;
+  text-decoration: underline;
+}
