@@ -7,6 +7,6 @@
 body {
   width: 100vw;
   height: 95vh;
-  background: radial-gradient(circle, #373737, #1d1d1d);
+  background: radial-gradient(circle, #373737, #171717);
   overflow-x: hidden;
 }
