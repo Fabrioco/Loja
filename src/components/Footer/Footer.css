@@ -1,0 +1,33 @@
+footer {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+footer > h1 {
+  font-family: var(--font-roboto-title);
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+footer > p {
+  font-family: var(--font-poppins-paragraph);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+footer > p > svg {
+  width: 25px;
+  height: 25px;
+}
+
+footer > span {
+  margin: 10px 0;
+  font-family: var(--font-poppins-paragraph);
+}

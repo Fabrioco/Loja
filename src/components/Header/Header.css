@@ -1,0 +1,19 @@
+.header {
+  width: 100vw;
+  margin: 40px 0;
+}
+
+.header > h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-roboto-title);
+  width: clamp(350px, 370px, 400px);
+  margin: auto;
+  height: 80px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background-color: #fff;
+  border-radius: 35px;
+  box-shadow: 0 2px 7px 0 #000000b2;
+}
