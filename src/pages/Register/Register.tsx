@@ -1,14 +1,20 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 
 import register from "../../assets/images/register.svg";
 import { InputLabel } from "../../components/InputLabel/InputLabel";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../../firebase/firebaseConnection";
-import { doc, setDoc } from "firebase/firestore";
 
 import "./Register.css";
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../../context/auth";
+export interface UserData {
+  uid: string;
+  name: string;
+  date: string;
+  gender: string;
+  address: string;
+  email: string;
+  password: string;
+}
 export function Register() {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
@@ -16,26 +22,13 @@ export function Register() {
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [typePassword, setTypePassword] = useState("password");
+
+  const { signUp, errorHTML } = useAuth();
 
   const submitRegister = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    await createUserWithEmailAndPassword(auth, email, password).then(
-      async (value) => {
-        let uid = value.user.uid;
-
-        await setDoc(doc(db, "Users", uid), {
-          name: name,
-          date: date,
-          gender: gender,
-          address: address,
-          email: email,
-          password: password,
-        });
-      }
-    );
+    signUp(email, password, name, date, gender, address);
   };
 
   const showPassword = () => {
@@ -112,10 +105,11 @@ export function Register() {
           value={
             typePassword == "password" ? "Mostrar Senha" : "Esconder Senha"
           }
-          className="btnShowPassord"
+          className="btnShowPassword"
         />
 
         <input type="submit" value="Cadastrar" className="btn" />
+        {errorHTML !== "" && <span className="errorHTML">{errorHTML}</span>}
         <span>
           Você já tem uma conta?
           <Link to="/login">Clique aqui</Link>

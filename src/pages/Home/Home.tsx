@@ -8,14 +8,14 @@ export default function Home() {
   return (
     <div className="container-home">
       <nav className="navigation-home">
-        <Link className="links" to="/">
+        <Link className="links" to="/mail">
           Loja
         </Link>
         <div>
           <Link className="links" to="/register">
             Registrar
           </Link>
-          <Link className="links" to="/">
+          <Link className="links" to="/login">
             Entrar
           </Link>
         </div>

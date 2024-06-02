@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
 import "./Header.css";
-import truck from '../../assets/images/truck-logo.svg'
+import { useAuth } from "../../context/auth";
 
 export default function Header() {
+  const { logout } = useAuth();
+  const signOut = async () => {
+    logout();
+  };
+
   return (
     <header className="header">
       <h1>LOPES PAPELARIA</h1>
+      <button onClick={signOut}>sair</button>
     </header>
   );
 }

@@ -46,6 +46,7 @@
   flex-direction: column;
   width: 100%;
 }
+
 #labelGender {
   font-family: var(--font-poppins-paragraph);
   font-size: 1.1rem;
@@ -60,7 +61,7 @@
   border-radius: 7px;
 }
 
-.btnShowPassord {
+.btnShowPassword {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -75,7 +76,7 @@
 .btn {
   background-color: #020202;
   color: #fff;
-  width: 300px;
+  max-width: 300px;
   padding: 10px;
   font-size: 1.1rem;
   font-family: var(--font-poppins-paragraph);
@@ -113,4 +114,9 @@
 .container-register > form > span > a:hover {
   color: #373737;
   text-decoration: underline;
+}
+
+.errorHTML {
+  font-family: var(--font-poppins-paragraph);
+  color: #ff0000;
 }
