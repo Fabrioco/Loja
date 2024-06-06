@@ -56,16 +56,14 @@ export function Context({ children }: ContainerProps) {
               address: docSnap.data()?.address,
               password: docSnap.data()?.password,
             };
+
             setUser(data);
             storageUser(data);
             navigate("/mail");
-          } else {
-            throw new Error("Documento não encontrado");
           }
         }
       );
     } catch (error) {
-      console.log(error);
       throw new Error("Erro ao fazer login. Verifique suas credenciais.");
     }
   };

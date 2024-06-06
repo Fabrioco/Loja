@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-family: var(--font-roboto-title);
+  color: #fff;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.container input[type="button"] {
+  background-color: #fff;
+  padding: 14px 24px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 7px;
+  transition: all 300ms;
+  box-shadow: 0 0 7px 0 #000;
+  font-family: var(--font-poppins-paragraph);
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.container input[type="button"]:hover {
+  box-shadow: 0 0 7px 0 #fff;
+  scale: 1.1;
+}

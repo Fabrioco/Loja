@@ -1,0 +1,80 @@
+.container {
+  padding-bottom: 100px;
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  width: max(90%, 300px);
+  min-height: 500px;
+  margin: auto;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #fff;
+  overflow-y: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.item {
+  width: 300px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  margin: 10px;
+  border-radius: 7px;
+  padding: 15px 0;
+  box-shadow: 0 0 14px 0 #26262648;
+  gap: 5px;
+  transition: all 500ms;
+}
+
+.item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px 0 #26262677;
+}
+
+.imgItem {
+  width: 200px;
+  height: 200px;
+}
+
+.nameItem {
+  font-family: var(--font-roboto-title);
+}
+
+.descItem {
+  font-family: var(--font-poppins-paragraph);
+  padding: 0 3px;
+  text-indent: 4px;
+  text-align: center;
+}
+
+.buttonProduct {
+  width: 150px;
+  height: 30px;
+  background-color: #000;
+  outline: none;
+  border: 1px solid #000;
+  color: #fff;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 7px;
+  cursor: pointer;
+  box-shadow: 0 0 5px 0 #0000009a;
+  transition: all 300ms;
+}
+
+.buttonProduct:hover {
+  background-color: #121212;
+  border: 1px solid #121212;
+}
+
+.buttonProduct:active {
+  background-color: #1d1d1d;
+  border: 1px solid #1d1d1d;
+}
