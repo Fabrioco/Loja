@@ -35,7 +35,7 @@ type ContextType = {
   logout: () => Promise<void>;
 };
 
-const TheContext = createContext<ContextType | undefined>(undefined);
+export const TheContext = createContext({} as ContextType);
 
 export function Context({ children }: ContainerProps) {
   const navigate = useNavigate();
@@ -151,11 +151,3 @@ export function Context({ children }: ContainerProps) {
     </TheContext.Provider>
   );
 }
-
-export const useAuth = () => {
-  const context = useContext(TheContext);
-  if (!context) {
-    throw new Error("useAuth deve ser usado dentro de um ContextProvider");
-  }
-  return context;
-};

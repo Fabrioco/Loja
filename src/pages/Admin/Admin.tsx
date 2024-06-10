@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { TheContext } from "../../context/auth";
 import { ButtonShared } from "../../components/Button/Button";
 import { InputLabel } from "../../components/InputLabel/InputLabel";
-import { useAuth } from "../../context/auth";
 import styles from "./Admin.module.css";
 import { doc, setDoc } from "firebase/firestore";
 import { db, storage } from "../../firebase/firebaseConnection";
@@ -10,7 +10,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { IoLogOut } from "react-icons/io5";
 
 export function Admin() {
-  const { user, logout } = useAuth();
+  const { user, logout } = useContext(TheContext);
 
   const [inputItemAdd, setInputItemAdd] = useState("");
   const [selectValue, setSelectValue] = useState("");

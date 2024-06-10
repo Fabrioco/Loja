@@ -1,16 +1,16 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useContext } from "react";
+import { TheContext } from "../../context/auth";
 import truck from "../../assets/images/truck-login.svg";
 import { InputLabel } from "../../components/InputLabel/InputLabel";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import { useAuth } from "../../context/auth";
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [typePassword, setTypePassword] = useState("password");
 
-  const { signIn, errorHTML } = useAuth();
+  const { signIn, errorHTML } = useContext(TheContext);
 
   const showPassword = () => {
     setTypePassword(typePassword === "password" ? "text" : "password");

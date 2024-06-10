@@ -1,11 +1,10 @@
 import React, { FormEvent, useContext, useState } from "react";
-
+import { TheContext } from "../../context/auth";
 import register from "../../assets/images/register.svg";
 import { InputLabel } from "../../components/InputLabel/InputLabel";
 
 import "./Register.css";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../context/auth";
 export interface UserData {
   uid?: string;
   name?: string;
@@ -24,7 +23,7 @@ export function Register() {
   const [password, setPassword] = useState("");
   const [typePassword, setTypePassword] = useState("password");
 
-  const { signUp, errorHTML } = useAuth();
+  const { signUp, errorHTML } = useContext(TheContext);
 
   const submitRegister = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

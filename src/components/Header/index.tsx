@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "../../context/auth";
+import { TheContext } from "../../context/auth";
+import { useContext } from "react";
 import "./Header.css";
 import { useEffect, useState } from "react";
 
@@ -9,7 +10,7 @@ interface NavLink {
 }
 
 export default function Header() {
-  const { user } = useAuth();
+  const { user } = useContext(TheContext);
   const location = useLocation();
   const [page, setPage] = useState<string>("home");
 

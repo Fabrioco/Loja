@@ -1,23 +1,22 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { ButtonShared } from "../../components/Button/Button";
 import {
-  ButtonHTMLAttributes,
-  act,
   useEffect,
   useReducer,
   useState,
+  useContext
 } from "react";
+import { TheContext } from "../../context/auth";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConnection";
 import { AllItemsProps } from "../Mail/Mail";
 import styles from "./Product.module.css";
-import { useAuth } from "../../context/auth";
 import { reducer } from "./reducer/reducer";
 
 export function Product() {
   const navigate = useNavigate();
 
-  const { user } = useAuth();
+  const { user } = useContext(TheContext);
   const { name } = useParams<string>();
   const [item, setItem] = useState<AllItemsProps | null>(null);
   const [itemsSameCategory, setItemsSameCategory] = useState<AllItemsProps[]>(
