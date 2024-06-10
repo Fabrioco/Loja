@@ -7,13 +7,13 @@ import "./Register.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 export interface UserData {
-  uid: string;
-  name: string;
-  date: string;
-  gender: string;
-  address: string;
-  email: string;
-  password: string;
+  uid?: string;
+  name?: string;
+  date?: string;
+  gender?: string;
+  address?: string;
+  email?: string;
+  password?: string;
 }
 export function Register() {
   const [name, setName] = useState("");

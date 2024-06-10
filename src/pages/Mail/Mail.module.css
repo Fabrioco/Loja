@@ -1,4 +1,5 @@
 .container {
+  padding-top: 30px;
   padding-bottom: 100px;
 }
 
@@ -19,7 +20,7 @@
 
 .item {
   width: 300px;
-  height: auto;
+  height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;

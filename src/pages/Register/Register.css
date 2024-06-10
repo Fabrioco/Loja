@@ -76,7 +76,8 @@
 .btn {
   background-color: #020202;
   color: #fff;
-  max-width: 300px;
+  width: auto;
+  height: auto;
   padding: 10px;
   font-size: 1.1rem;
   font-family: var(--font-poppins-paragraph);

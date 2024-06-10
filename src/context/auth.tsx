@@ -3,7 +3,13 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import React, { createContext, useContext, ReactNode, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+} from "react";
 import { auth, db } from "../firebase/firebaseConnection";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { UserData } from "../pages/Register/Register";
@@ -37,35 +43,44 @@ export function Context({ children }: ContainerProps) {
   const [user, setUser] = useState<UserData | null>(null);
   const [errorHTML, setErrorHTML] = useState("");
 
-  const signIn = async (email: string, password: string) => {
-    try {
-      await signInWithEmailAndPassword(auth, email, password).then(
-        async (value) => {
-          let uid = value.user.uid;
-
-          const docRef = doc(db, "Users", uid);
-          const docSnap = await getDoc(docRef);
-
-          if (docSnap.exists()) {
-            let data: UserData = {
-              uid: uid,
-              name: docSnap.data()?.name,
-              email: value.user.email!,
-              gender: docSnap.data()?.gender,
-              date: docSnap.data()?.date,
-              address: docSnap.data()?.address,
-              password: docSnap.data()?.password,
-            };
-
-            setUser(data);
-            storageUser(data);
-            navigate("/mail");
-          }
-        }
-      );
-    } catch (error) {
-      throw new Error("Erro ao fazer login. Verifique suas credenciais.");
+  useEffect(() => {
+    const storedUser = localStorage.getItem("@User");
+    if (storedUser) {
+      const userData = JSON.parse(storedUser) as UserData;
+      setUser(userData);
     }
+  }, []);
+
+  const signIn = async (email: string, password: string) => {
+    await signInWithEmailAndPassword(auth, email, password)
+      .then(async (value) => {
+        const uid = value.user.uid;
+
+        const docRef = doc(db, "Users", uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const data: UserData = {
+            uid: uid,
+            name: docSnap.data()?.name,
+            email: value.user.email!,
+            gender: docSnap.data()?.gender,
+            date: docSnap.data()?.date,
+            address: docSnap.data()?.address,
+            password: docSnap.data()?.password,
+          };
+
+          setUser(data);
+          storageUser(data);
+          navigate("/mail");
+        }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        if (errorCode === "auth/invalid-credential") {
+          setErrorHTML("Verifique sua credenciais");
+        }
+      });
   };
 
   const signUp = async (
@@ -76,48 +91,52 @@ export function Context({ children }: ContainerProps) {
     gender: string,
     address: string
   ) => {
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then(async (value) => {
-        let uid = value.user.uid;
+    try {
+      const value = await createUserWithEmailAndPassword(auth, email, password);
+      const uid = value.user.uid;
 
-        await setDoc(doc(db, "Users", uid), {
-          name,
-          date,
-          gender,
-          address,
-          email,
-          password,
-        })
-          .then(() => {
-            const data: UserData = {
-              uid,
-              name,
-              date,
-              gender,
-              address,
-              email: value.user.email!,
-              password,
-            };
-            setUser(data);
-            storageUser(data);
-            navigate("/mail");
-          })
-          .catch((error) => console.log(error));
-      })
-      .catch((error: any) => {
-        if (error.code === "auth/email-already-in-use") {
-          setErrorHTML(
-            "Esse email já está sendo usado, por favor use outro ou faça login!"
-          );
-        }
+      await setDoc(doc(db, "Users", uid), {
+        name,
+        date,
+        gender,
+        address,
+        email,
+        password,
       });
+
+      const data: UserData = {
+        uid,
+        name,
+        date,
+        gender,
+        address,
+        email: value.user.email!,
+        password,
+      };
+
+      setUser(data);
+      storageUser(data);
+      navigate("/mail");
+    } catch (error: any) {
+      if (error.code === "auth/email-already-in-use") {
+        setErrorHTML(
+          "Esse email já está sendo usado, por favor use outro ou faça login!"
+        );
+      } else {
+        console.error("Erro ao registrar:", error);
+      }
+    }
   };
 
   const logout = async () => {
-    await signOut(auth);
-    setUser(null);
-    localStorage.removeItem("@User");
-    navigate("/");
+    try {
+      await signOut(auth);
+      setUser(null);
+      localStorage.removeItem("@User");
+      navigate("/");
+    } catch (error) {
+      console.error("Erro ao sair:", error);
+    }
   };
 
   const storageUser = (data: UserData) => {

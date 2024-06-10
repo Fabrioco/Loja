@@ -1,28 +1,16 @@
 import { FormEvent, useState } from "react";
 import truck from "../../assets/images/truck-login.svg";
 import { InputLabel } from "../../components/InputLabel/InputLabel";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Login.css";
 import { useAuth } from "../../context/auth";
-
-interface UserData {
-  uid?: string;
-  name: string;
-  date: string;
-  gender: string;
-  address: string;
-  email: string;
-  password: string;
-}
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorHTML, setErrorHTML] = useState("");
   const [typePassword, setTypePassword] = useState("password");
 
-  const { signIn } = useAuth();
-  const navigate = useNavigate();
+  const { signIn, errorHTML } = useAuth();
 
   const showPassword = () => {
     setTypePassword(typePassword === "password" ? "text" : "password");
@@ -30,11 +18,8 @@ export function Login() {
 
   const submitLogin = async (e: FormEvent) => {
     e.preventDefault();
-    try {
+    if (email !== "" && password !== "") {
       await signIn(email, password);
-      navigate("/mail");
-    } catch (error) {
-      setErrorHTML("Erro ao fazer login. Verifique suas credenciais.");
     }
   };
 

@@ -6,32 +6,7 @@
   justify-content: space-evenly;
 }
 
-.navigation-home {
-  width: 100%;
-  margin: auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
-.links {
-  color: #fff;
-  width: auto;
-  text-decoration: none;
-  font-family: var(--font-poppins-paragraph);
-  font-size: 1.2rem;
-  transition: 300ms;
-}
-
-.links:hover {
-  text-shadow: 0 0 7px #ffffffa6;
-}
-
-.navigation-home > div {
-  display: flex;
-  justify-content: space-around;
-  width: clamp(250px, 250px, 400px);
-}
 
 .main-content {
   display: flex;

@@ -1,6 +1,7 @@
 .header {
   width: 100vw;
-  margin: 40px 0;
+  height: 10vh;
+  margin: 35px 0;
 }
 
 .header > h1 {
@@ -16,4 +17,30 @@
   background-color: #fff;
   border-radius: 35px;
   box-shadow: 0 2px 7px 0 #000000b2;
+}
+
+.navigation {
+  width: 100%;
+  margin: 5px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.links {
+  color: #fff;
+  width: auto;
+  text-decoration: none;
+  font-family: var(--font-poppins-paragraph);
+  font-size: 1.2rem;
+  transition: 300ms;
+  background-color: #010101;
+  padding: 5px 10px;
+  border-radius: 13px;
+  box-shadow: 0 0 7px 0 #00000068;
+}
+
+.links:hover {
+  text-shadow: 0 0 7px #ffffffa6;
+  box-shadow: 0 0 7px 0 #2f2f2f;
 }
