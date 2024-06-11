@@ -25,8 +25,12 @@ export default function Header() {
       ...(user?.email === "admin@admin.com"
         ? [{ to: "/admin", label: "Administração" }]
         : []),
-      { to: "/register", label: "Registrar" },
-      { to: "/login", label: "Entrar" },
+      ...(user === null
+        ? [
+            { to: "/register", label: "Registrar" },
+            { to: "/login", label: "Entrar" },
+          ]
+        : []),
     ],
     admin: [
       { to: "/", label: "Início" },
@@ -38,7 +42,7 @@ export default function Header() {
         ? [{ to: "/admin", label: "Administração" }]
         : []),
       { to: "/cart", label: "Carrinho" },
-      { to: "/settings", label: "Configurações" },
+      ...(user !== null ? [{ to: "/settings", label: "Configurações" }] : []),
     ],
     register: [
       { to: "/", label: "Início" },
@@ -56,13 +60,15 @@ export default function Header() {
     cart: [
       { to: "/", label: "Início" },
       { to: "/mail", label: "Loja" },
-      { to: "/settings", label: "Configurações" },
+      ...(user !== null ? [{ to: "/settings", label: "Configurações" }] : []),
     ],
   };
 
+  console.log(user);
+
   return (
     <header className="header">
-      <h1>LOPES PAPELARIA</h1>
+      <h1>Lopes Papelaria</h1>
       <nav className="navigation">
         {navLinks[page]?.map((link) => (
           <Link key={link.to} to={link.to} className="links">

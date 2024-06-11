@@ -1,21 +1,33 @@
 .container {
   padding-top: 30px;
-  padding-bottom: 100px;
+  min-height: 80vh;
 }
 
 .section {
   display: flex;
   flex-wrap: wrap;
   width: max(90%, 300px);
-  min-height: 500px;
+  max-height: 700px;
   margin: auto;
   padding: 15px;
   border-radius: 15px;
   background-color: #fff;
-  overflow-y: auto;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  overflow-y: auto;
+}
+
+.section::-webkit-scrollbar {
+  width: 10px;
+  background-color: #000;
+  border-radius: 5px;
+  
+}
+
+.section::-webkit-scrollbar-thumb {
+  background-color: #7b7b7b;
+  border-radius: 5px;
 }
 
 .item {

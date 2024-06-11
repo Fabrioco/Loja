@@ -1,7 +1,11 @@
 .header {
-  width: 100vw;
+  width: 100%;
   height: 10vh;
-  margin: 35px 0;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  background-color: #f2f2f2;
+  box-shadow: 1px 0 20px #000000;
 }
 
 .header > h1 {
@@ -9,22 +13,21 @@
   justify-content: center;
   align-items: center;
   font-family: var(--font-roboto-title);
-  width: clamp(350px, 370px, 400px);
-  margin: auto;
+  width: 30%;
   height: 80px;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
-  background-color: #fff;
-  border-radius: 35px;
-  box-shadow: 0 2px 7px 0 #000000b2;
 }
 
 .navigation {
-  width: 100%;
-  margin: 5px auto;
+  width: 30%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  align-self: flex-end;
+  background-color: #010101;
+  border-radius: 5px 5px 0 0;
+  margin-right: 50px;
 }
 
 .links {
@@ -42,5 +45,4 @@
 
 .links:hover {
   text-shadow: 0 0 7px #ffffffa6;
-  box-shadow: 0 0 7px 0 #2f2f2f;
 }
