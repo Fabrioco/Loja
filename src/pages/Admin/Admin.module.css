@@ -3,7 +3,7 @@
   min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: auto;
 }
@@ -18,7 +18,7 @@
   border-radius: 3px;
   box-shadow: 0 0 7px 0 #000000b2;
   gap: 30px;
-  margin-top: 30px;
+  margin: 30px 0 200px 0;
 }
 
 .span {

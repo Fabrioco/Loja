@@ -125,7 +125,7 @@
 }
 
 .itemCarrosel {
-  min-width: 230px;
+  width: clamp(180px, 300px, 400px);
   border: 1px solid #000;
   display: flex;
   flex-direction: column;

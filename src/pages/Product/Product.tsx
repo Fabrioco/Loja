@@ -1,35 +1,30 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { ButtonShared } from "../../components/Button/Button";
-import {
-  useEffect,
-  useReducer,
-  useState,
-  useContext
-} from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { TheContext } from "../../context/auth";
+import styles from "./Product.module.css";
+import { AllItemsProps } from "../Mail/Mail";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConnection";
-import { AllItemsProps } from "../Mail/Mail";
-import styles from "./Product.module.css";
 import { reducer } from "./reducer/reducer";
 
 export function Product() {
   const navigate = useNavigate();
-
-  const { user } = useContext(TheContext);
-  const { name } = useParams<string>();
   const [item, setItem] = useState<AllItemsProps | null>(null);
+  const [typeOfItem, setTypeOfItem] = useState("");
   const [itemsSameCategory, setItemsSameCategory] = useState<AllItemsProps[]>(
     []
   );
-  const [typeOfItem, setTypeOfItem] = useState("");
-
   const [state, dispatch] = useReducer(reducer, { counter: 0 });
+
+  const { user } = useContext(TheContext);
+  const { name } = useParams()
 
   useEffect(() => {
     const fetchData = async () => {
       const docRef = doc(db, "ItemsToSell", `${name}`);
       const docSnap = await getDoc(docRef);
+
 
       if (docSnap.exists()) {
         const itemData = docSnap.data() as AllItemsProps;
@@ -78,12 +73,16 @@ export function Product() {
   };
 
   const handleBackPage = () => {
-    navigate('/mail')
+    navigate("/mail");
   };
 
   return (
     <div className={styles.container}>
-      <ButtonShared onClick={handleBackPage} value="Voltar" className={styles.btnBack} />
+      <ButtonShared
+        onClick={handleBackPage}
+        value="Voltar"
+        className={styles.btnBack}
+      />
       <section className={styles.section}>
         {item && (
           <>

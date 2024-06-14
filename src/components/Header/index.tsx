@@ -27,9 +27,9 @@ export default function Header() {
         : []),
       ...(user === null
         ? [
-            { to: "/register", label: "Registrar" },
-            { to: "/login", label: "Entrar" },
-          ]
+          { to: "/register", label: "Registrar" },
+          { to: "/login", label: "Entrar" },
+        ]
         : []),
     ],
     admin: [
@@ -42,7 +42,9 @@ export default function Header() {
         ? [{ to: "/admin", label: "Administração" }]
         : []),
       { to: "/cart", label: "Carrinho" },
-      ...(user !== null ? [{ to: "/settings", label: "Configurações" }] : []),
+      ...(user !== null && user?.email !== "admin@admin.com"
+        ? [{ to: "/settings", label: "Configurações" }]
+        : []),
     ],
     register: [
       { to: "/", label: "Início" },
@@ -60,11 +62,11 @@ export default function Header() {
     cart: [
       { to: "/", label: "Início" },
       { to: "/mail", label: "Loja" },
-      ...(user !== null ? [{ to: "/settings", label: "Configurações" }] : []),
+      ...(user !== null && user?.email !== "admin@admin.com"
+        ? [{ to: "/settings", label: "Configurações" }]
+        : []),
     ],
   };
-
-  console.log(user);
 
   return (
     <header className="header">

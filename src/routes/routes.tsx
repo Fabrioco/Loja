@@ -20,16 +20,11 @@ export function RoutesApp() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/Login" element={<Login />} />
-
+          <Route path="/login" element={<Login />} />
           <Route path="/mail" element={<Mail />} />
-
           <Route path="/item/:name" element={<Product />} />
-
           <Route path="/settings" element={<Settings />} />
-
           <Route path="/cart" element={<Cart />} />
-
           <Route
             path="/admin"
             element={
