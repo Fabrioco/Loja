@@ -8,8 +8,10 @@ import { db, storage } from "../../firebase/firebaseConnection";
 import { IoClose } from "react-icons/io5";
 import { deleteObject, getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { AllItemsProps } from "../Mail/Mail";
+import { useNavigate } from "react-router-dom";
 
 export function Admin() {
+  const navigate = useNavigate()
   const { user, logout } = useContext(TheContext);
 
   const [inputItemAdd, setInputItemAdd] = useState("");
@@ -35,6 +37,10 @@ export function Admin() {
   const dataformated = data?.split("-").reverse().join("/");
 
   useEffect(() => {
+    if(user?.email !== 'admin@admin.com'){
+      navigate('/')
+      return
+    }
     const renderAllItems = async () => {
       const querySnapshot = await getDocs(collection(db, "ItemsToSell"));
       const items = querySnapshot.docs.map((doc) =>
@@ -178,9 +184,9 @@ export function Admin() {
         <ButtonShared value="Sair" className="btn" onClick={signOut} />
       </section>
 
-      <article>
+      <article className={styles.articleOptions}>
         <div>
-          <span>Adicionar produtos á loja</span>
+          <span>Adicionar produtos à loja</span>
           <ButtonShared
             onClick={handleModalIsOpened}
             value="Adicionar"
@@ -209,7 +215,7 @@ export function Admin() {
           <IoClose size={40} color="#FF0000" />
         </button>
         <section className={styles.sectionModal}>
-          <h2 className={styles.titleModal}>Adicionar item</h2>
+          <h2 className={styles.titleModal}>ADICIONAR ITEM</h2>
           <div>
             <InputLabel
               type="text"

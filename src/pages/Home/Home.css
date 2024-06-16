@@ -1,12 +1,10 @@
 .container-home {
-  width: 100vw;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  padding: 10px;
+  min-height: 85vh;
 }
-
-
 
 .main-content {
   display: flex;
@@ -28,6 +26,7 @@
   width: clamp(300px, 400px, 500px);
 }
 
-.main-container > img {
-  width: clamp(250px, 70%, 700px);
+.main-content > img {
+  width: 600px;
+  min-width: 250px;
 }

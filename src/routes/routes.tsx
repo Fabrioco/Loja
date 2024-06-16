@@ -11,6 +11,7 @@ import { Product } from "../pages/Product/Product";
 import { Admin } from "../pages/Admin/Admin";
 import { Settings } from "../pages/Settings/Settings";
 import { Cart } from "../pages/Cart/Cart";
+import { ResetPassword } from "../pages/ResetPassword/ResetPassword";
 
 export function RoutesApp() {
   return (
@@ -25,6 +26,7 @@ export function RoutesApp() {
           <Route path="/item/:name" element={<Product />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="resetpassword" element={<ResetPassword />} />
           <Route
             path="/admin"
             element={

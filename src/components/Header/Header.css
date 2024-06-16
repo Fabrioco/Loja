@@ -3,6 +3,7 @@
   height: 10vh;
   display: flex;
   justify-content: space-between;
+  padding: 0 50px;
   margin-bottom: 30px;
   background-color: #f2f2f2;
   box-shadow: 1px 0 20px #000000;
@@ -13,21 +14,20 @@
   justify-content: center;
   align-items: center;
   font-family: var(--font-roboto-title);
-  width: 30%;
-  height: 80px;
   font-size: 2rem;
   font-weight: 700;
 }
 
 .navigation {
-  width: 30%;
+  width: auto;
+  padding: 0 20px;
+  height: 40px;
   display: flex;
   justify-content: space-around;
-  align-items: center;
   align-self: flex-end;
+  align-items: center;
   background-color: #010101;
   border-radius: 5px 5px 0 0;
-  margin-right: 50px;
 }
 
 .links {
@@ -45,4 +45,17 @@
 
 .links:hover {
   text-shadow: 0 0 7px #ffffffa6;
+}
+
+@media (width<=600px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px;
+    padding: 0;
+  }
+  .navigation{
+    width: 100%;
+  }
 }

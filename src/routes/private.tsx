@@ -24,7 +24,7 @@ export function Private({ children }: PrivateProps) {
   }, [navigate]);
 
   if (!signed) {
-    return null;
+    return null; 
   }
 
   return <>{children}</>;
