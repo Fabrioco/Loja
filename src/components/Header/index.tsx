@@ -1,8 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { TheContext } from "../../context/auth";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Header.css";
-import { useEffect, useState } from "react";
 
 interface NavLink {
   to: string;
@@ -16,7 +15,7 @@ export default function Header() {
 
   useEffect(() => {
     const path = location.pathname.slice(1) || "home";
-    setPage(path);
+    setPage(path.split("/")[0]);
   }, [location]);
 
   const navLinks: { [key: string]: NavLink[] } = {
@@ -66,6 +65,10 @@ export default function Header() {
         ? [{ to: "/settings", label: "Configurações" }]
         : []),
     ],
+    resetpassword: [
+      { to: "/", label: "Início" },
+      { to: "/mail", label: "Loja" },
+    ]
   };
 
   return (
@@ -77,6 +80,11 @@ export default function Header() {
             {link.label}
           </Link>
         ))}
+        {location.pathname.includes("item") && (
+          <Link to="/mail" className="links">
+            Loja
+          </Link>
+        )}
       </nav>
     </header>
   );

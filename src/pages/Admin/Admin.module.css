@@ -10,15 +10,17 @@
 
 .section {
   width: 80%;
+  min-width: 250px;
   background-color: #fff;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   padding: 5px 10px;
   border-radius: 3px;
   box-shadow: 0 0 7px 0 #000000b2;
   gap: 30px;
-  margin: 30px 0 200px 0;
+  margin: 30px 0 20px 0;
 }
 
 .span {
@@ -27,14 +29,41 @@
   text-align: center;
 }
 
+.articleOptions {
+  width: 80%;
+  min-width: 250px;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 3px;
+  box-shadow: 0 0 7px 0 #000000b2;
+  gap: 30px;
+}
+
+.articleOptions > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.articleOptions > div > span {
+  font-family: var(--font-poppins-paragraph);
+  font-size: 1.4rem;
+}
+
 .modalAddActive {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #8a8a8a;
-  width: 35vw;
-  height: 60vh;
+  width: 35%;
+  min-width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,6 +72,7 @@
   border: 1px solid #bcbcbcb2;
   box-shadow: 0 0 7px 0 #0000009d;
   transition: all 300ms;
+  padding: 10px;
 }
 
 .modalAddClosed {
@@ -78,6 +108,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.sectionModal > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.sectionModal > div > label {
+  font-family: var(--font-poppins-paragraph);
+  font-size: 1.1rem;
+}
+
+.sectionModal > div > select {
+  width: 100%;
+  padding: 5px;
+  font-size: 1.2rem;
+  border: 1px solid #000;
+  border-radius: 7px;
 }
 
 .titleModal {

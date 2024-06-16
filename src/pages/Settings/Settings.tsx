@@ -4,10 +4,16 @@ import { ButtonShared } from "../../components/Button/Button";
 import styles from "./Settings.module.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { InputLabel } from "../../components/InputLabel/InputLabel";
-import { db } from "../../firebase/firebaseConnection";
+import { auth, db } from "../../firebase/firebaseConnection";
 import { doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { IoClose } from "react-icons/io5";
 import { UserData } from "../Register/Register";
+import {
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+  sendEmailVerification,
+  updateEmail,
+} from "firebase/auth";
 
 export interface DataStorageProps {
   inputAddressEditor: string;
@@ -102,7 +108,7 @@ export function Settings() {
   const changeAddressFirebase = async () => {
     const updatedData = {
       ...user,
-      address: inputAddressEditor
+      address: inputAddressEditor,
     };
 
     if (user?.uid) {
@@ -275,7 +281,11 @@ export function Settings() {
               value={inputAddressEditor}
               onchange={(e) => setInputAddressEditor(e.target.value)}
             />
-            <ButtonShared value="EDITAR" className="btn" onClick={changeAddressFirebase} />
+            <ButtonShared
+              value="EDITAR"
+              className="btn"
+              onClick={changeAddressFirebase}
+            />
           </div>
         </div>
       )}
