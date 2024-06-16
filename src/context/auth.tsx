@@ -14,6 +14,7 @@ import { auth, db } from "../firebase/firebaseConnection";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { UserData } from "../pages/Register/Register";
 import { useNavigate } from "react-router-dom";
+import { DataStorageProps } from "../pages/Settings/Settings";
 
 type ContainerProps = {
   children: ReactNode;
@@ -33,6 +34,7 @@ type ContextType = {
   user: UserData | null;
   setUser: React.Dispatch<React.SetStateAction<UserData | null>>;
   logout: () => Promise<void>;
+  storageUser: (data: UserData | DataStorageProps) => void
 };
 
 export const TheContext = createContext({} as ContextType);
@@ -96,6 +98,7 @@ export function Context({ children }: ContainerProps) {
       const uid = value.user.uid;
 
       await setDoc(doc(db, "Users", uid), {
+        uid,
         name,
         date,
         gender,
@@ -139,13 +142,13 @@ export function Context({ children }: ContainerProps) {
     }
   };
 
-  const storageUser = (data: UserData) => {
+  const storageUser = (data: UserData | DataStorageProps) => {
     localStorage.setItem("@User", JSON.stringify(data));
   };
 
   return (
     <TheContext.Provider
-      value={{ signIn, signUp, errorHTML, user, setUser, logout }}
+      value={{ signIn, signUp, errorHTML, user, setUser, logout, storageUser }}
     >
       {children}
     </TheContext.Provider>

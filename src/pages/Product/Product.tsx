@@ -133,12 +133,12 @@ export function Product() {
           <ButtonShared
             value="Voltar"
             onClick={() => dispatch({ type: "decrement" })}
-            disabled={state.counter == 0}
+            disabled={state.counter <= 0}
           />
           <ButtonShared
             value="Proximo"
             onClick={() => dispatch({ type: "increment" })}
-            disabled={itemsSameCategory.length == 2}
+            disabled={itemsSameCategory.length <= 2}
           />
         </div>
       </article>
