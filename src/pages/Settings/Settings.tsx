@@ -73,8 +73,6 @@ export function Settings() {
     setInputPasswordEditor(user?.password || "");
   };
 
-  console.log(inputNameEditor);
-
   const handleEditDataUser = async () => {
     const data = {
       ...user,
