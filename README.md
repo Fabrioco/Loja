@@ -26,6 +26,7 @@ Carrinho de Compras: Adição e remoção de produtos no carrinho.
 
 
 Tecnologias Utilizadas:
+
 Frontend: ReactJS, TypeScript, CSS modules
 Backend: Firebase
 Roteamento: React Router DOM
@@ -51,28 +52,31 @@ Abra seu navegador e acesse: `http://localhost:3000`
 
 
 ### Contribuindo
+
 Se você deseja contribuir para o projeto, siga os passos abaixo:
 
 Faça um fork do repositório.
+
 Crie uma branch para sua feature ou correção:
-git checkout -b minha-feature
+`git checkout -b minha-feature`
 
 
 Faça commit das suas alterações:
-git commit -m 'Adiciona minha nova feature'
+`git commit -m 'Adiciona minha nova feature'`
 
 
 Envie suas alterações para o repositório remoto:
-git push origin minha-feature
+`git push origin minha-feature`
 
 
 Abra um pull request.
 
 
-Licença
+**Licença**
+
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para obter mais informações.
 
-Contato
+**Contato**
 Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato:
 
 Nome: Fabrício Oliveira Lopes
