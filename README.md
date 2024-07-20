@@ -17,17 +17,17 @@ Para rodar o projeto localmente, siga os passos abaixo:
 
 Clone o repositório:
 
-bash
+
 Copiar código
 `git clone https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git`
 Navegue até o diretório do projeto:
 
-bash
+
 Copiar código
 `cd NOME_DO_REPOSITORIO`
 Instale as dependências:
 
-bash
+
 Copiar código
 `npm install`
 Configure as variáveis de ambiente:
@@ -35,7 +35,7 @@ Configure as variáveis de ambiente:
 Crie um arquivo .env na raiz do projeto e adicione suas credenciais do Firebase.
 Inicie o servidor de desenvolvimento:
 
-bash
+
 Copiar código
 `npm start`
 Abra seu navegador e acesse:
