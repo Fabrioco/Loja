@@ -2,7 +2,7 @@
  Bem-vindo ao repositório do projeto Loja Online. Este é um sistema completo de loja desenvolvido utilizando ReactJS e TypeScript. O projeto inclui funcionalidades tanto para administradores quanto para usuários finais, proporcionando uma experiência completa de compra online.
 
  
-** Acesso para Administrador: ** 
+**Acesso para Administrador** 
 Email: `admin@admin.com`
 Senha: `123123`
 
@@ -15,6 +15,9 @@ Gerenciamento de Produtos: Adicionar, editar e remover produtos.
 Detalhes do Produto: Visualização de informações detalhadas de cada produto.
 
 Carrinho de Compras: Adição e remoção de produtos no carrinho.
+
+**Acesso para Cliente**
+Caso você não tenha uma conta, você pode estar criando uma e ter todo o acesso
 
 
 Tecnologias Utilizadas:
