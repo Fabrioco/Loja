@@ -1,14 +1,24 @@
 # Loja Online
  Bem-vindo ao repositório do projeto Loja Online. Este é um sistema completo de loja desenvolvido utilizando ReactJS e TypeScript. O projeto inclui funcionalidades tanto para administradores quanto para usuários finais, proporcionando uma experiência completa de compra online.
 
+ 
+** Acesso para Administrador: ** 
+Email: `admin@admin.com`
+Senha: `123123`
+
 Funcionalidades
+
 Para Administradores
+
 Gerenciamento de Produtos: Adicionar, editar e remover produtos.
+
 Detalhes do Produto: Visualização de informações detalhadas de cada produto.
+
 Carrinho de Compras: Adição e remoção de produtos no carrinho.
-Finalização de Compra: Processamento de pedidos e pagamento.
-Tecnologias Utilizadas
-Frontend: ReactJS, TypeScript, Tailwind CSS
+
+
+Tecnologias Utilizadas:
+Frontend: ReactJS, TypeScript, CSS modules
 Backend: Firebase
 Roteamento: React Router DOM
 
@@ -17,26 +27,19 @@ Para rodar o projeto localmente, siga os passos abaixo:
 
 Clone o repositório:
 
-`git clone https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git`
-Navegue até o diretório do projeto:
+`git clone https://github.com/Fabrioco/Loja.git`
+Navegue até o diretório do projeto: `cd Loja`
 
-
-`cd NOME_DO_REPOSITORIO`
-Instale as dependências:
-
-
-`npm install`
+Instale as dependências: `npm install`
 Configure as variáveis de ambiente:
 
 Crie um arquivo .env na raiz do projeto e adicione suas credenciais do Firebase.
 
 
-Inicie o servidor de desenvolvimento:
-`npm start`
+Inicie o servidor de desenvolvimento: `npm start`
 
 
-Abra seu navegador e acesse:
-`http://localhost:3000`
+Abra seu navegador e acesse: `http://localhost:3000`
 
 
 ### Contribuindo
