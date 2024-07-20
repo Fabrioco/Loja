@@ -7,6 +7,11 @@
 Email: `admin@admin.com`
 Senha: `123123`
 
+
+**Acesso para Cliente**
+Caso você não tenha uma conta, você pode estar criando uma e ter todo o acesso.
+
+
 Funcionalidades
 
 Para Administradores
@@ -17,8 +22,6 @@ Detalhes do Produto: Visualização de informações detalhadas de cada produto.
 
 Carrinho de Compras: Adição e remoção de produtos no carrinho.
 
-**Acesso para Cliente**
-Caso você não tenha uma conta, você pode estar criando uma e ter todo o acesso
 
 
 Tecnologias Utilizadas:
